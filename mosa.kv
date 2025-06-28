@@ -1,0 +1,70 @@
+<MainWidget>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+
+    Label:
+        text: "Mosa Translate"
+        font_size: 32
+        bold: True
+        color: 0.1, 0.1, 0.1, 1
+        size_hint_y: None
+        height: 40
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.4  # use 40% of height
+        spacing: 10
+
+        TextInput:
+            id: input_box
+            hint_text: "Enter or speak text"
+            font_size: 18
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+            multiline: True
+            padding: 10
+
+        Button:
+            text: "🎤"
+            size_hint_x: None
+            width: 60
+            font_size: 24
+            background_color: 0.2, 0.6, 1, 1
+            color: 1, 1, 1, 1
+            on_press: root.record_voice()
+
+    Button:
+        text: "Translate"
+        size_hint_y: None
+        height: 50
+        font_size: 20
+        background_color: 0.2, 0.6, 1, 1
+        color: 1, 1, 1, 1
+        on_press: root.translate_text()
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.4  # use 40% of height
+        spacing: 10
+
+        TextInput:
+            id: output_box
+            hint_text: "Translation appears here"
+            font_size: 18
+            readonly: True
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+            multiline: True
+            padding: 10
+
+        Button:
+            text: "🔊"
+            size_hint_x: None
+            width: 60
+            font_size: 24
+            background_color: 0.2, 0.6, 1, 1
+            color: 1, 1, 1, 1
+            on_press: root.speak_output()
